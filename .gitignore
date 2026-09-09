@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+venv/
+.venv/
+*.swp
+*.swo
+.DS_Store
+data/.secret
+data/config.json
+data/audit.log.json
+data/ip_log.json
+data/metrics.db*
+data/ai_sessions/
+data/ai_facts.json

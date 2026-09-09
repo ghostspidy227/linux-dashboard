@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:">
+    <title>Linux Dashboard</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div id="login-screen">
+        <div class="login-card">
+            <div class="logo" style="text-align:center;margin-bottom:20px;font-size:20px;">&#9679; Linux Dashboard</div>
+            <div id="login-warning" class="card" style="background:rgba(210,153,34,0.1);border-color:var(--warning);margin-bottom:16px;display:none;font-size:12px;color:var(--warning);padding:10px;text-align:center;">
+                Password is still the default 'admin'. Please change it in Settings after login.
+            </div>
+            <div>
+                <input type="text" id="login-username" placeholder="Username" value="admin" style="width:100%;margin-bottom:10px;padding:10px;" autocomplete="username">
+            </div>
+            <div>
+                <input type="password" id="login-password" placeholder="Password" style="width:100%;margin-bottom:12px;padding:10px;" autocomplete="current-password">
+            </div>
+            <div id="login-error" style="color:var(--danger);font-size:12px;margin-bottom:12px;display:none;"></div>
+            <button class="btn btn-primary" id="btn-login" style="width:100%;padding:10px;">Login</button>
+        </div>
+    </div>
+
+    <div id="app-shell" style="display:none;">
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <span class="logo">&#9679; Dashboard</span>
+        </div>
+        <nav id="sidebar-nav">
+            <a class="nav-item active" data-section="metrics" href="#">
+                <span class="nav-icon">&#9632;</span>
+                <span class="nav-label">Metrics</span>
+            </a>
+            <a class="nav-item" data-section="network" href="#">
+                <span class="nav-icon">&#9635;</span>
+                <span class="nav-label">Network</span>
+            </a>
+            <a class="nav-item" data-section="services" href="#">
+                <span class="nav-icon">&#9881;</span>
+                <span class="nav-label">Services</span>
+            </a>
+            <a class="nav-item" data-section="processes" href="#">
+                <span class="nav-icon">&#9776;</span>
+                <span class="nav-label">Processes</span>
+            </a>
+            <a class="nav-item" data-section="packages" href="#">
+                <span class="nav-icon">&#9636;</span>
+                <span class="nav-label">Packages</span>
+            </a>
+            <a class="nav-item" data-section="firewall" href="#">
+                <span class="nav-icon">&#128737;</span>
+                <span class="nav-label">Firewall</span>
+            </a>
+            <a class="nav-item" data-section="settings" href="#">
+                <span class="nav-icon">&#9881;</span>
+                <span class="nav-label">Settings</span>
+            </a>
+        </nav>
+    </aside>
+
+    <main id="main-content">
+        <header id="section-header">
+            <h1 id="section-title">Metrics</h1>
+            <div id="section-controls"></div>
+        </header>
+        <div id="section-body">
+            <div class="placeholder">Select a section from the sidebar.</div>
+        </div>
+    </main>
+
+    <div id="ai-panel" class="drawer hidden">
+        <div class="drawer-header">
+            <h2>AI Assistant</h2>
+            <div style="display:flex;gap:2px;align-items:center;">
+                <button class="btn-icon" id="btn-ai-new" title="New chat">&#65291;</button>
+                <button class="btn-icon" id="btn-ai-threads" title="Past chats">&#128340;</button>
+                <button class="btn-icon" id="btn-ai-facts" title="Remembered facts">&#128204;</button>
+                <button class="btn-icon" id="btn-ai-stop" title="Stop" style="display:none;color:var(--danger)">&#9632;</button>
+                <button class="btn-close" id="btn-close-ai">&times;</button>
+            </div>
+        </div>
+        <div class="drawer-body" id="ai-messages"></div>
+        <div class="drawer-input">
+            <input type="text" id="ai-chat-input" placeholder="Ask about this machine…">
+            <button class="btn btn-primary" id="btn-ai-send">Send</button>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+    <div id="modal-overlay" class="hidden"></div>
+    </div>
+
+    <script src="/js/vendor/chart.umd.min.js"></script>
+    <script type="module" src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "bind": "127.0.0.1",
+  "port": 7000,
+  "sections": {
+    "metrics": true,
+    "network": true,
+    "services": true,
+    "processes": true,
+    "packages": true,
+    "firewall": true
+  },
+  "ai": {
+    "enabled": false,
+    "provider": "ollama",
+    "ollama_url": "http://localhost:11434",
+    "ollama_model": "llama3",
+    "openai_key": "",
+    "openrouter_key": "",
+    "gemini_key": "",
+    "openai_model": "gpt-4o",
+    "openrouter_model": "mistralai/mistral-7b-instruct",
+    "gemini_model": "gemini-1.5-flash"
+  },
+  "auth": {
+    "username": "admin",
+    "password_hash": ""
+  }
+}
